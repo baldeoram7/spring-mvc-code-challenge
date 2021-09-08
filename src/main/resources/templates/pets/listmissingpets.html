@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Home Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <div th:replace="../fragments/header :: header-css"/>
+</head>
+<body>
+<div th:replace="../fragments/header :: header"/>
+<div class="list-pets">
+    <div class="text-center">
+        <form th:action="@{/}">
+            <table style="width:40%; margin-left: auto;margin-right: auto; margin-bottom: 50px;margin-top: 50px;">
+                <tbody>
+                <tr style="text-align:center">
+                    <td style="text-align:right">Search By Pet Type:</td>
+                    <td><input type="text" th:name="petsType"/></td>
+                    <td style="text-align:left"><input style="background: darkseagreen" type="submit" value="Search"/>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+        <table class="list-pets-table" style="width : 100%; text-align : left">
+            <thead>
+            <tr>
+                <th style="width : 10%">#</th>
+                <th style="width : 30%">Pets Name</th>
+                <th style="width : 30%">Pets Type</th>
+                <th style="width : 30%">Missing Since</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="pet, stats : ${petsList}">
+                <td th:text="${stats.index + 1}">1</td>
+                <td th:text="${pet.name}">100</td>
+                <td th:text="${pet.petType}">John</td>
+                <td th:text="${pet.missingSince}">Doe</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<div th:replace="../fragments/footer :: footer"/>
+</body>
+</html>

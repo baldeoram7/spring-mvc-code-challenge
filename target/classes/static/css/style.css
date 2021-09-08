@@ -1,0 +1,30 @@
+.list-pets .list-pets-table tr { border: .4pt }
+.list-pets .list-pets-table { border: solid }
+.list-pets .list-pets-table thead { border: 14pt double(1,12,1) }
+.list-pets .list-pets-table thead { background: darkseagreen }
+.list-pets .list-pets-table tr:nth-child(even) {
+  background-color: #EAFAF1;
+}
+.list-pets .list-pets-table tr:nth-child(odd) {
+  background-color: #EBF5FB;
+}
+.list-pets .list-pets-table thead tr th { background: darkseagreen }
+
+.create-pets table { background: #E8F8F5; border: solid }
+
+li {
+margin-left: 25px;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+a:active {
+   color: #0366d6;
+}
+
+a:link {
+  color: #0366d6;
+}

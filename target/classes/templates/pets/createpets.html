@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Home Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <div th:replace="../fragments/header :: header-css"/>
+</head>
+<body>
+<div th:replace="../fragments/header :: header"/>
+<div class="create-pets">
+    <form action="#" th:action="@{/createpets}" th:object="${createpet}" method="post">
+        <table style="width:40%; margin-left: auto;margin-right: auto;">
+            <tbody>
+            <tr>
+                <td>Pets Name:</td>
+                <td><input type="text" th:field="*{name}"/></td>
+            </tr>
+            <tr>
+                <td>Pets Type:</td>
+                <td><select th:field="*{petType}">
+                    <option th:value="'CAT'" th:text="CAT"></option>
+                    <option th:value="'DOG'" th:text="DOG"></option>
+                    <option th:value="'FISH'" th:text="FISH"></option>
+                    <option th:value="'BIRD'" th:text="BIRD"></option>
+                    <option th:value="'HORSE'" th:text="HORSE"></option>
+                    <option th:value="'RABBIT'" th:text="RABBIT"></option>
+                    <option th:value="'RABBIT'" th:text="TORTOISE"></option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Missing since:</td>
+                <td><input type="datetime-local" th:field="*{missingSince}"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input style="background: darkseagreen" type="submit" value="Submit"/><input
+                        style="background: darkseagreen" type="reset" value="Reset"/></td>
+            </tr>
+            </tbody>
+        </table>
+        <div style="text-align:center; color : red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Pet Name
+            Error>
+        </div>
+        <div style="text-align:center; color : red" th:if="${#fields.hasErrors('petType')}" th:errors="*{petType}">Pet
+            Type Error>
+        </div>
+        <div style="text-align:center; color : red" th:if="${#fields.hasErrors('missingSince')}"
+             th:errors="*{missingSince}">Pet Missing Since Error>
+        </div>
+    </form>
+</div>
+<div th:replace="../fragments/footer :: footer"/>
+</body>
+</html>
